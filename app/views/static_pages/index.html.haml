@@ -1,2 +1,28 @@
 %h1 StaticPages#index
 %p Find me in app/views/static_pages/index.html.haml
+
+
+%h2 Users
+
+- User.all.each do |user|
+  = user.uun
+  //= user.reservations
+  %br
+
+= link_to "Signup", new_user_path
+
+%h2 Movies
+- Movie.all.each do |movie|
+  = movie.name
+  %br
+= link_to "New Movie", new_movie_path
+
+
+%h2 Schedules
+- Schedule.all.each do |schedule|
+  = schedule.movie.name
+  = schedule.playing_at
+  = schedule.room.name
+
+
+ 

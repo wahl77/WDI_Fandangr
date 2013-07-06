@@ -1,6 +1,10 @@
 Fandangr::Application.routes.draw do
+
   get "static_pages/index"
 	root :to => 'static_pages#index'
+	resources :movies
+	resources :users
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
