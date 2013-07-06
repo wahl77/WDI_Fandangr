@@ -40,11 +40,10 @@ ActiveRecord::Schema.define(:version => 20130706190746) do
 
   create_table "schedules", :force => true do |t|
     t.integer  "movie_id"
-    t.date     "playing_day"
-    t.time     "playing_time"
+    t.datetime "playing_at"
     t.integer  "room_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "schedules", ["movie_id"], :name => "index_schedules_on_movie_id"
@@ -63,9 +62,9 @@ ActiveRecord::Schema.define(:version => 20130706190746) do
   create_table "users", :force => true do |t|
     t.string   "uun"
     t.string   "password_digest"
-    t.boolean  "is_admin"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.boolean  "is_admin",        :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
 end

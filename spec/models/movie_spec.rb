@@ -14,4 +14,13 @@ describe Movie do
 	it "must have a name" do 
 		expect(@movie_with_name.valid?).to be_true
 	end
+
+	it "must have a name" do
+		should validate_presence_of(:name)
+	end
+
+	it "can have schedule times" do 
+		should have_many(:schedules)
+	end
+
 end

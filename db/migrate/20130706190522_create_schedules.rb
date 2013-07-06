@@ -2,8 +2,7 @@ class CreateSchedules < ActiveRecord::Migration
   def change
     create_table :schedules do |t|
       t.references :movie
-      t.date :playing_day
-      t.time :playing_time
+      t.datetime :playing_at
       t.references :room
 
       t.timestamps
