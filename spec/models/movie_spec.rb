@@ -1,5 +1,17 @@
 require 'spec_helper'
 
 describe Movie do
-  pending "add some examples to (or delete) #{__FILE__}"
+	before do
+		@movie = Movie.new
+		@movie_with_name = Movie.new(name:"Casablanca")
+
+	end
+
+	it "must have a name" do
+		expect(@movie.valid?).to be_false
+	end
+
+	it "must have a name" do 
+		expect(@movie_with_name.valid?).to be_true
+	end
 end
