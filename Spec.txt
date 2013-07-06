@@ -1,0 +1,28 @@
+Models:
+	User model
+		- Has uun
+		- Has password
+		- is_admin
+
+	Movie model
+		- Has name
+		( - has a description)
+
+	Schedule Model
+		- Has a playing time (TimeStamp)
+		- Belongs to a movie
+		- Belongs to a room
+
+	Seats model
+		- x position 
+		- y  position
+		- belongs to a room
+
+
+	Reservation model:
+		- Has a user
+		- Has a schedule
+		- Has a seat
+
+	Room model:
+		- Has a name
