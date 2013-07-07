@@ -12,15 +12,11 @@ $(document).ready(function(){
 				schedule: window.location.pathname.split("/")[window.location.pathname.split("/").length-1].toString()
 			},
 			complete: function(response){
-				console.log(response.responseText);
-				seats = response.responseText.split(",")
-				console.log(seats)
-				for (var i = 0; i < seats.length-1 ; ++i){
-					x = seats[i].split("|")[0];
-					y = seats[i].split("|")[1];
-					console.log(x,y)
-					$("#"+ x + "-" + y).css("background-color", "red");
-					
+				array = $.parseJSON(response.responseText)
+				console.log(array);
+				for (var i = 0; i < array.length; ++i){
+					console.log(array[i]);
+					$("#"+ array[i][0] + "-" + array[i][1]).css("background-color", "red");
 				}
 			}
 		}

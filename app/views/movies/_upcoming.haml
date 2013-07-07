@@ -1,6 +1,14 @@
 %h2 Upcoming movies
 - Schedule.showing.each do |schedule|
-  = link_to schedule.movie.name, schedule_path(schedule)
-  is playing on
-  = schedule.start_time
+  .description
+    %img{src:"#{schedule.movie.poster}",  class:"image"}
+    %p
+      = link_to schedule.movie.name, schedule_path(schedule)
+      is playing on
+      = schedule.start_time
+      until 
+      = schedule.end_time
+
+      %br
+      = schedule.movie.description
   %br

@@ -1,3 +1,21 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.description{
+	overflow:hidden;
+}
+
+.description > img, .description > p{
+	float: left;
+}
+
+.description > img {
+	width: 10%;
+}
+
+.description > p {
+padding:15px 10px;
+	width: 70%;
+}
+

@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
 
   def create
 		@movie = Movie.new(params[:movie])
+		
 		if @movie.save
 		  redirect_to root_path
     else
@@ -20,4 +21,6 @@ class MoviesController < ApplicationController
 
   def edit
   end
+
+
 end

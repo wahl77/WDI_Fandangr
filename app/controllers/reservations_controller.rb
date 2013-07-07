@@ -26,9 +26,9 @@ class ReservationsController < ApplicationController
   
   def get_values
    schedule = Schedule.find(params["schedule"])
-	 @str = ""
+	 @array = []
 	 schedule.reservations.each do |reservation|
-	   @str += reservation.seat.pos_x.to_s + "|" + reservation.seat.pos_y.to_s + ","
+	   @array << [reservation.seat.pos_x, reservation.seat.pos_y]
 	 end
   end
   

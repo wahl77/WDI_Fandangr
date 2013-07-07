@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   
-  skip_before_filter :require_authentication, only:[:create]
+  skip_before_filter :require_authentication, only:[:create, :destroy]
   
   def create
     user = User.find_by_uun(params[:uun])
