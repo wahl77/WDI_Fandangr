@@ -1,20 +1,21 @@
 
 %h1 
   Hello 
-  = current_user.uun
-
-
-%h3 
-  Movies you bought tickets for
-  //- binding.pry
-- current_user.reservations.each do |reservation|
-  = reservation.schedule.movie.name
-  on
-  = reservation.schedule.start_time
-  %br
-
-
+  = current_user.uun.capitalize
 
 = render partial:"movies/upcoming"
+
+%h3 
+  Movies you previously bought tickets for
+- @my_hash.keys.each do |key|
+  .description
+    %img{src:"#{@my_hash[key][0].poster}"}
+    %p
+      = @my_hash[key][1] 
+      tickets for 
+      = @my_hash[key][0].name
+      playing at 
+      = @my_hash[key][2]
+  %br
 
 
