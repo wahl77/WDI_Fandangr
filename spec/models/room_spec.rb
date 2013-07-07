@@ -25,6 +25,10 @@ describe Room do
 		should have_many(:schedules)
 	end
 
+	it "has a unique name" do 
+		should validate_uniqueness_of(:name)
+	end
+
 	
 #  pending "add some examples to (or delete) #{__FILE__}"
 end

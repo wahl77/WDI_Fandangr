@@ -5,3 +5,41 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+#
+
+casablanca = Movie.new(name:"Casablanca", duration:3600)
+matrix = Movie.new(name:"Matrix", duration:3000)
+
+casablanca.save
+matrix.save
+
+room = Room.create(name:"A")
+5.times do |x| 
+	5.times do |y| 
+		seat = Seat.new
+		seat.pos_x = x
+		seat.pos_y = y
+		room.seats << seat
+	end
+end
+
+room = Room.create(name:"B")
+3.times do |x| 
+	3.times do |y| 
+		seat = Seat.new
+		seat.pos_x = x
+		seat.pos_y = y
+		room.seats << seat
+	end
+end
+
+
+start_time = Time.now + 1*7*24*60*60
+schedule = Schedule.new
+schedule.movie = matrix
+schedule.room = room
+schedule.start_time = start_time
+schedule.save
+
+

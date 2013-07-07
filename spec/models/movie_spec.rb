@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Movie do
 	before do
 		@movie = Movie.new
-		@movie_with_name = Movie.new(name:"Casablanca")
+		@movie_with_name = Movie.new(name:"Casablanca", duration:3600)
 
 	end
 
@@ -21,6 +21,10 @@ describe Movie do
 
 	it "can have schedule times" do 
 		should have_many(:schedules)
+	end
+
+	it "must have a duration" do 
+		should validate_presence_of(:duration)
 	end
 
 end

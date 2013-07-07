@@ -1,9 +1,17 @@
 Fandangr::Application.routes.draw do
 
+  get "reservations/create"
+
   get "static_pages/index"
 	root :to => 'static_pages#index'
 	resources :movies
 	resources :users
+	resources :schedules
+	resources :rooms
+	resources :sessions
+	resources :reservations
+
+	get "/logout" => 'sessions#destroy', as:"logout"
 
 
   # The priority is based upon order of creation:

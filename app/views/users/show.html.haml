@@ -1,0 +1,18 @@
+
+%h1 
+  Hello 
+  = current_user.uun
+
+
+%h3 
+  Movies seen
+ 
+- current_user.movies.each do |movie|
+  = movie.name
+
+
+- Schedule.showing.each do |schedule|
+  = link_to schedule.movie.name, schedule_path(schedule)
+  %br
+
+

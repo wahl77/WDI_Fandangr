@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130706190746) do
 
   create_table "movies", :force => true do |t|
     t.string   "name"
+    t.integer  "duration"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -40,7 +41,8 @@ ActiveRecord::Schema.define(:version => 20130706190746) do
 
   create_table "schedules", :force => true do |t|
     t.integer  "movie_id"
-    t.datetime "playing_at"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "room_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

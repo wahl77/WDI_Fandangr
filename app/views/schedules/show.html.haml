@@ -1,0 +1,11 @@
+%h1 
+  Schedule for
+  = @schedule.movie.name
+  on
+  = @schedule.start_time
+
+
+  = render partial:"static_pages/grid", locals:{max_pos_x:@room.seats.maximum(:pos_x), max_pos_y:@room.seats.maximum(:pos_y)}
+
+
+  %script{src:"/assets/schedules.js"}

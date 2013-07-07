@@ -8,36 +8,36 @@
     = csrf_meta_tags
   %body
     .container
-      //  .row
-      //    .span12
-      //      .navbar
-      //        %nav.navbar-inner
-      //          %ul.nav
-      //            
-      //          - if !current_user
-      //            %a{href:new_user_path}
-      //              .btn.pull-right
-      //                Signup
-      //            = form_tag sessions_path, class:"navbar-form pull-right" do
-      //              = text_field_tag :uun, params[:uun], placeholder:"Username", class:"span2"
-      //              = password_field_tag :password, params[:password], type:"password", placeholder:"Password", class:"span2"
-      //              = submit_tag :Login, :class => "btn"
-      //            
-      //          - else
-      //            .btn
-      //              = link_to "Home", "/users/#{current_user.id}"
-      //              
-      //            Hello
-      //            = current_user.uun
-      //            %a{href:logout_path}
-      //              Logout
-      //  .row
-      //  
-      - unless flash[:notice].blank?
-        .alert
-          = flash[:notice]
-      - unless flash[:alert].blank?
-        .alert.alert-error  
-          = flash[:alert]
-          
+      .row
+        .span12
+          .navbar
+            %nav.navbar-inner
+              %ul.nav
+                
+              - if !current_user
+                %a{href:new_user_path}
+                  .btn.pull-right
+                    Signup
+                = form_tag sessions_path, class:"navbar-form pull-right" do
+                  = text_field_tag :uun, params[:uun], placeholder:"Username", class:"span2"
+                  = password_field_tag :password, params[:password], type:"password", placeholder:"Password", class:"span2"
+                  = submit_tag :Login, :class => "btn"
+                
+              - else
+                .btn
+                  = link_to "Home", "/users/#{current_user.id}"
+                  
+                Hello
+                = current_user.uun
+                %a{href:logout_path}
+                  Logout
+      .row
+      
+        - unless flash[:notice].blank?
+          .alert
+            = flash[:notice]
+        - unless flash[:alert].blank?
+          .alert.alert-error  
+            = flash[:alert]
+            
       = yield

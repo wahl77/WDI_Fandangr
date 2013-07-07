@@ -1,0 +1,28 @@
+= form_for @schedule do |f|
+  //= f.datetime_select :playing_at, Date.today
+  //= datetime_field (:schedule, :palying_at) 
+  - if @schedule.errors.any?
+    #error_explanation
+      %h2 
+        =pluralize(@schedule.errors.count, "error") 
+        prohibited this schedule from being saved:
+
+      %ul
+        - @schedule.errors.full_messages.each do |msg|
+          %li= msg 
+
+  = f.label :movie
+  = f.select :movie_id, Movie.all.map{|movie| [movie.name, movie.id]} 
+  %br
+
+  = f.label :room
+  = f.select :room_id, Room.all.map{|room| [room.name, room.id]} 
+  %br
+  %br
+
+  = f.label :start_time 
+  = datetime_select :schedule, :start_time, :start_year => Date.today.year, use_short_month:true
+  %br
+
+  = f.submit
+

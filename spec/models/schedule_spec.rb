@@ -10,18 +10,27 @@ describe Schedule do
 	end
 
 	it "should have a timestamp" do
-		should validate_presence_of(:playing_at)
+		should validate_presence_of(:start_time)
+		should validate_presence_of(:end_time)
 	end
-
 
 	it "shows upcoming movies" do
 		room = Room.create(name:"Abc")
-		movie = Movie.create(name:"Hey")
-		schedule = Schedule.new(playing_at:Time.now+7*24*60*60)
+		movie = Movie.create(name:"Hey", duration:3600)
+		schedule = Schedule.new
 		schedule.room = room
 		schedule.movie = movie
+		schedule.start_time = Time.now
 		schedule.save
 		up_coming = Schedule.showing()
 		expect(up_coming.length).to be > 0
+	end
+
+	it "should be playing in a room" do
+		should validate_presence_of(:room)
+	end
+
+	it "should be playing a certain movie" do 
+		should validate_presence_of(:movie)
 	end
 end
