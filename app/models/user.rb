@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
 		presence:true,
 		uniqueness:true
 
+  def uun=(value)
+    write_attribute :uun, value.downcase
+  end
 
 
 end

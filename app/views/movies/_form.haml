@@ -1,8 +1,18 @@
 = form_for @movie do |f|
+  - if @movie.errors.any?
+    #error_explanation
+      %h2 
+        =pluralize(@movie.errors.count, "error") 
+        prohibited this movie from being saved:
+
+      %ul
+        - @movie.errors.full_messages.each do |msg|
+          %li= msg
+
   = f.label :name
   = f.text_field :name
   
-  = f.label :duration
-  = f.number_field :duration
+  = f.label :duration, "Duration (in minutes)" 
+  = f.number_field :duration, value:90
 
   = f.submit

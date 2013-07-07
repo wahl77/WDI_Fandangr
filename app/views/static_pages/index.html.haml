@@ -1,9 +1,4 @@
 %h1
   AMC Metron Best App Ever
 
-%h3 Upcoming Movies
-- Schedule.showing.each do |schedule|
-  = link_to schedule.movie.name, schedule_path(schedule)
-  is playing on
-  = schedule.start_time
-  %br
+= render partial:"movies/upcoming"

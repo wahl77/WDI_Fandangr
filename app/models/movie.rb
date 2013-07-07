@@ -11,7 +11,15 @@ class Movie < ActiveRecord::Base
 		presence:true,
 		numericality:{greater_than:0}
 
+  before_save :update_duration
 	def playing_at
 		schedules = Schedule.where("movie_id = ? AND start_time > ? AND start_time < ? ", self.id, Time.now, Time.now+2*7*24*60*60)
 	end
+	
+	def update_duration
+	  self.duration *= 60
+	end
+	#def duration=(value)
+	#  self.duration = value*60
+	#end
 end

@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Playlist radio
+    %title Movie Theatre
     //%link{href:"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css", rel:"stylesheet"}
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
@@ -26,11 +26,12 @@
               - else
                 .btn
                   = link_to "Home", "/users/#{current_user.id}"
-                  
-                Hello
-                = current_user.uun
-                %a{href:logout_path}
-                  Logout
+                
+                .pull-right 
+                  Hello
+                  = current_user.uun
+                  .btn
+                    = link_to "Logout", logout_path
       .row
       
         - unless flash[:notice].blank?

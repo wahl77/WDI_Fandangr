@@ -5,14 +5,16 @@
 
 
 %h3 
-  Movies seen
+  Movies you bought tickets for
  
-- current_user.movies.each do |movie|
-  = movie.name
-
-
-- Schedule.showing.each do |schedule|
-  = link_to schedule.movie.name, schedule_path(schedule)
+- current_user.reservations.each do |reservation|
+  = reservation.schedule.movie.name
+  on
+  = reservation.schedule.start_time
   %br
+
+
+
+= render partial:"movies/upcoming"
 
 
