@@ -55,5 +55,8 @@ schedule.save
 
 
 tmp = User.create(uun:"a", password:"a")
+tmp = User.new(uun:"franky", password:"franky")
+tmp.is_admin = true
+tmp.save
 
 

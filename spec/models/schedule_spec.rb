@@ -20,7 +20,7 @@ describe Schedule do
 		schedule = Schedule.new
 		schedule.room = room
 		schedule.movie = movie
-		schedule.start_time = Time.now
+		schedule.start_time = Time.now+2600
 		schedule.save
 		up_coming = Schedule.showing()
 		expect(up_coming.length).to be > 0

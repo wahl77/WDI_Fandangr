@@ -16,6 +16,8 @@ Fandangr::Application.routes.draw do
 
 
 	get "/logout" => 'sessions#destroy', as:"logout"
+	
+	get "/admin" => "admins#panel", as:"admin"
 
 
   # The priority is based upon order of creation:

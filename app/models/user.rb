@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   def uun=(value)
     write_attribute :uun, value.downcase
   end
+  
+  def admin?
+    return self.is_admin
+  end
 
 
 end

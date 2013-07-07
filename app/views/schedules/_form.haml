@@ -1,3 +1,6 @@
+%h3 
+  New Schedule
+
 = form_for @schedule do |f|
   //= f.datetime_select :playing_at, Date.today
   //= datetime_field (:schedule, :palying_at) 
@@ -25,4 +28,3 @@
   %br
 
   = f.submit
-

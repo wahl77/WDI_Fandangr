@@ -33,12 +33,13 @@
                   .btn
                     = link_to "Logout", logout_path
       .row
+        .span12
       
-        - unless flash[:notice].blank?
-          .alert
-            = flash[:notice]
-        - unless flash[:alert].blank?
-          .alert.alert-error  
-            = flash[:alert]
+          - unless flash[:notice].blank?
+            .alert
+              = flash[:notice]
+          - unless flash[:alert].blank?
+            .alert.alert-error  
+              = flash[:alert]
             
-      = yield
+          = yield
