@@ -27,6 +27,9 @@
                 .btn
                   = link_to "Home", "/users/#{current_user.id}"
                 
+                - if current_user.admin?
+                  .btn
+                    = link_to "Admin", admin_path
                 .pull-right 
                   Hello
                   = current_user.uun
