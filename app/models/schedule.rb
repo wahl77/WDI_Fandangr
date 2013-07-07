@@ -1,6 +1,7 @@
 class Schedule < ActiveRecord::Base
   belongs_to :movie
   belongs_to :room
+  has_many :reservations
 
 	attr_accessible :start_time, :end_time, :movie_id, :room_id
 

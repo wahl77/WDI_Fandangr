@@ -1,6 +1,8 @@
 Fandangr::Application.routes.draw do
 
   get "reservations/create"
+	get "/reservations/get_values" => "reservations#get_values"
+
 
   get "static_pages/index"
 	root :to => 'static_pages#index'
@@ -10,6 +12,7 @@ Fandangr::Application.routes.draw do
 	resources :rooms
 	resources :sessions
 	resources :reservations
+
 
 	get "/logout" => 'sessions#destroy', as:"logout"
 

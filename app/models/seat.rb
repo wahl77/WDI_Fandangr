@@ -5,9 +5,9 @@ class Seat < ActiveRecord::Base
 
 	validates :pos_x,
 		presence:true,
-		numericality:{greater_than:0}
+		numericality:{greater_than_or_equal_to:0}
 
 	validates :pos_y,
 		presence:true,
-		numericality:{greater_than:0}
+		numericality:{greater_than_or_equal_to:0}
 end

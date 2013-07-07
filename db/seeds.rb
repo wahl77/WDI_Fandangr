@@ -18,18 +18,18 @@ room = Room.create(name:"A")
 5.times do |x| 
 	5.times do |y| 
 		seat = Seat.new
-		seat.pos_x = x
-		seat.pos_y = y
+		seat.pos_x = x-1
+		seat.pos_y = y-1
 		room.seats << seat
 	end
 end
 
 room = Room.create(name:"B")
-3.times do |x| 
-	3.times do |y| 
+7.times do |x| 
+	7.times do |y| 
 		seat = Seat.new
-		seat.pos_x = x
-		seat.pos_y = y
+		seat.pos_x = x-1
+		seat.pos_y = y-1
 		room.seats << seat
 	end
 end
@@ -41,5 +41,7 @@ schedule.movie = matrix
 schedule.room = room
 schedule.start_time = start_time
 schedule.save
+
+tmp = User.create(uun:"a", password:"a")
 
 
