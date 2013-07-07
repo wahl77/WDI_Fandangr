@@ -25,7 +25,9 @@
                 
               - else
                 .btn
-                  = link_to "Home", "/users/#{current_user.id}"
+                  = link_to "My Tickets", "/users/#{current_user.id}"
+                .btn
+                  = link_to "Upcoming Movies", "/"
                 
                 - if current_user.admin?
                   .btn
