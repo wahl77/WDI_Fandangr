@@ -1,4 +1,7 @@
 class SchedulesController < ApplicationController
+  
+  skip_before_filter :require_authentication, only:[:show]
+  
   def new
 		@schedule = Schedule.new
   end

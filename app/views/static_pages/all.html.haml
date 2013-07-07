@@ -1,0 +1,60 @@
+%h1 StaticPages#index
+%p Find me in app/views/static_pages/index.html.haml
+
+
+%h2 Users
+
+- User.all.each do |user|
+  = user.uun
+  - user.movies.each do |movie|
+    = movie.name
+  //= user.reservations
+  %br
+
+= link_to "Signup", new_user_path
+
+%h2 Movies
+- Movie.all.each do |movie|
+  = movie.name
+  %ul 
+    - movie.playing_at.each do | time | 
+      %li= time.start_time
+    
+  %br
+= link_to "New Movie", new_movie_path
+
+
+%h2 Schedules
+- Schedule.all.each do |schedule|
+  = schedule.movie.name
+  is playing at 
+  = schedule.start_time
+  until
+  = schedule.end_time
+  in room
+  = schedule.room.name
+  %br
+= link_to "New Showing", new_schedule_path
+
+%h2 Now in theatres
+- Schedule.showing.each do |schedule|
+  = schedule.movie.name
+
+%h2 Rooms
+- Room.all.each do |room|
+  = room.name
+
+
+  = render partial:"grid", locals:{max_pos_x: room.seats.maximum(:pos_x), max_pos_y: room.seats.maximum(:pos_y)}
+
+  %br
+= link_to "New Room", new_room_path
+
+
+%h2 Seating in rooms
+
+%br
+%br
+%br
+%br
+%br

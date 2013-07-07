@@ -10,17 +10,21 @@
 
 casablanca = Movie.new(name:"Casablanca", duration:3600)
 matrix = Movie.new(name:"Matrix", duration:3000)
+charlie = Movie.new(name:"Charlie Chaplin", duration:3000)
+
+
 
 casablanca.save
 matrix.save
+charlie.save
 
-room = Room.create(name:"A")
+room_1 = Room.create(name:"A")
 5.times do |x| 
 	5.times do |y| 
 		seat = Seat.new
 		seat.pos_x = x-1
 		seat.pos_y = y-1
-		room.seats << seat
+		room_1.seats << seat
 	end
 end
 
@@ -41,6 +45,14 @@ schedule.movie = matrix
 schedule.room = room
 schedule.start_time = start_time
 schedule.save
+
+schedule = Schedule.new
+start_time = Time.now + 3*24*60*60
+schedule.movie = charlie
+schedule.room = room_1
+schedule.start_time = start_time
+schedule.save
+
 
 tmp = User.create(uun:"a", password:"a")
 

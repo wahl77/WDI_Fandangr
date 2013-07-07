@@ -40,7 +40,11 @@ $(document).ready(function(){
 			
 			complete: function(response){
 				console.log(response.responseText);
-				$("#"+event.target.id).css("background-color", "red");
+				if (response.responseText !== "Ok"){
+					alert(response.responseText)
+				} else {
+					$("#"+event.target.id).css("background-color", "red");
+				}
 			}
 		};
 

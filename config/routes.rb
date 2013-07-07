@@ -4,8 +4,9 @@ Fandangr::Application.routes.draw do
 	get "/reservations/get_values" => "reservations#get_values"
 
 
-  get "static_pages/index"
+  get "/all" => "static_pages#all"
 	root :to => 'static_pages#index'
+	
 	resources :movies
 	resources :users
 	resources :schedules
