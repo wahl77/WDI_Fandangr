@@ -23,6 +23,14 @@ class Schedule < ActiveRecord::Base
 		schedules = Schedule.where("start_time > ? AND start_time < ? ", Time.now, Time.now+2*7*24*60*60)
 	end
 
+
+	def display_starting_time 
+		self.start_time.to_s(:playing_at)
+	end
+	def display_end_time 
+		self.end_time.to_s(:playing_at)
+	end
+
 	def start_time=(value)
 		write_attribute :start_time, value 
 		write_attribute :end_time, value + movie.duration

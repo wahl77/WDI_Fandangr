@@ -1,19 +1,21 @@
+.row
+  .span12
 
-%h1 
-  Hello 
-  = current_user.uun.capitalize
+    %h1 
+      Hello 
+      = current_user.uun.capitalize
 
-%h3 
-  Movies you previously bought tickets for
-- @my_hash.keys.each do |key|
-  .description
-    %img{src:"#{@my_hash[key][0].poster}"}
-    %p
-      = @my_hash[key][1] 
-      tickets for 
-      = @my_hash[key][0].name
-      playing at 
-      = @my_hash[key][2]
-  %br
+    %h3 
+      Movies you previously bought tickets for
+    - @my_hash.keys.each do |key|
+      .description
+        %img{src:"#{@my_hash[key][0].poster}"}
+        %p
+          = @my_hash[key][1] 
+          tickets for 
+          = @my_hash[key][0].name
+          playing on 
+          = @my_hash[key][2].display_starting_time
+      %br
 
 

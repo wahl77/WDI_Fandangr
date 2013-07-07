@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 		@my_hash = {}
 
 		current_user.reservations.each do |reservation|
-			@my_hash[reservation.schedule_id] = [Schedule.find(reservation.schedule_id).movie, Reservation.where("schedule_id = ? AND user_id = ?", reservation.schedule_id, current_user.id).count, Schedule.find(reservation.schedule_id).start_time]
+			@my_hash[reservation.schedule_id] = [Schedule.find(reservation.schedule_id).movie, Reservation.where("schedule_id = ? AND user_id = ?", reservation.schedule_id, current_user.id).count, Schedule.find(reservation.schedule_id)]
 		end
 	end
 

@@ -10,7 +10,7 @@
 
 casablanca = Movie.new(name:"Casablanca", duration:3600)
 matrix = Movie.new(name:"The Matrix", duration:3000)
-charlie = Movie.new(name:"Charlie Chaplin", duration:3000)
+charlie = Movie.new(name:"The Godfather", duration:3000)
 
 
 

@@ -1,11 +1,23 @@
-%h1 
-  Schedule for
-  = @schedule.movie.name
-  on
-  = @schedule.start_time
+.row
+  .span12 
+    %h1 
+      Schedule for
+      = @schedule.movie.name
+      on
+      = @schedule.display_starting_time
 
+    %br
 
-  = render partial:"static_pages/grid", locals:{max_pos_x:@room.seats.maximum(:pos_x), max_pos_y:@room.seats.maximum(:pos_y)}
+    = render partial:"static_pages/grid", locals:{max_pos_x:@room.seats.maximum(:pos_x), max_pos_y:@room.seats.maximum(:pos_y)}
 
+.row
+  %br
+  .span12
+    .description
+      %img{src:"#{@schedule.movie.poster}"}
+      %p
+        = @schedule.movie.name
+        %br
+        = @schedule.movie.description
 
-  %script{src:"/assets/schedules.js"}
+%script{src:"/assets/schedules.js"}
